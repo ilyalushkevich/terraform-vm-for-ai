@@ -37,6 +37,12 @@ terraform plan
 terraform apply
 ```
 
+После того как машина будет создана, вы сможете к ней подключиться под пользователем `deepseek-practice`:
+
+```bash
+ssh deepseek-practice@<публичный адрес вашей вм>
+```
+
 ## Requirements
 
 | Name | Version |
