@@ -20,7 +20,7 @@ resource "yandex_compute_instance" "vm" {
     mode = "READ_WRITE"
     initialize_params {
       image_id = data.yandex_compute_image.boot_image.id
-      size     = 30
+      size     = 40
       type     = "network-hdd"
     }
   }
@@ -35,10 +35,9 @@ resource "yandex_compute_instance" "vm" {
   }
 
   metadata = {
-    user-data = (
-      format("#cloud-config\npackage_update: true\nusers:\n  - name: %s\n    shell: /bin/bash\n    sudo: 'ALL=(ALL:ALL) NOPASSWD: ALL'\n    ssh_authorized_keys:\n      - %s",
-        "deepseek-practice", var.ssh_public_key,
-      )
-    )
+    user-data = templatefile("${path.module}/cloudinit.tftpl", {
+      username       = "deepseek"
+      ssh_public_key = var.ssh_public_key
+    })
   }
 }

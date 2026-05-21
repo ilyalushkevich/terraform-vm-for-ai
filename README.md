@@ -1,12 +1,12 @@
 ## Инструкция по установке
-​
+
 Склонируйте репозиторий в ранее созданную директорию modules:
 
 ```
 git clone git@github.com:ilyalushkevich/terraform-vm-for-ai.git ~/terraform-cicdcourse/modules/vm-for-ai
 ```
 
-Добавьте в `main.tf` описание этого модуля:
+Добавьте в `main.tf` описание этого модуля:
 
 ```hcl
 module "vm-for-ai" {
@@ -37,23 +37,23 @@ terraform plan
 terraform apply
 ```
 
-После того как машина будет создана, вы сможете к ней подключиться под пользователем `deepseek-practice`:
+После того как машина будет создана, вы сможете к ней подключиться под пользователем `deepseek`:
 
 ```bash
-ssh deepseek-practice@<публичный адрес вашей вм>
+ssh deepseek@<публичный адрес вашей вм>
 ```
 
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_yandex"></a> [yandex](#requirement\_yandex) | = 0.145.0 |
+| <a name="requirement_yandex"></a> [yandex](#requirement\_yandex) | = 0.204.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_yandex"></a> [yandex](#provider\_yandex) | = 0.145.0 |
+| <a name="provider_yandex"></a> [yandex](#provider\_yandex) | = 0.204.0 |
 
 ## Modules
 
@@ -63,8 +63,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [yandex_compute_instance.vm](https://registry.terraform.io/providers/yandex-cloud/yandex/0.145.0/docs/resources/compute_instance) | resource |
-| [yandex_compute_image.boot_image](https://registry.terraform.io/providers/yandex-cloud/yandex/0.145.0/docs/data-sources/compute_image) | data source |
+| [yandex_compute_instance.vm](https://registry.terraform.io/providers/yandex-cloud/yandex/0.204.0/docs/resources/compute_instance) | resource |
+| [yandex_compute_image.boot_image](https://registry.terraform.io/providers/yandex-cloud/yandex/0.204.0/docs/data-sources/compute_image) | data source |
 
 ## Inputs
 
@@ -78,4 +78,4 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_connect_to_runner_vm"></a> [connect\_to\_runner\_vm](#output\_connect\_to\_runner\_vm) | Подключение к ВМ раннера через SSH. |
+| <a name="output_connect_to_vm"></a> [connect\_to\_vm](#output\_connect\_to\_vm) | Подключение к ВМ через SSH. |
